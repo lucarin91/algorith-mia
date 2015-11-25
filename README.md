@@ -13,3 +13,7 @@
   - QuickSort
     - Alternative version of QuickSort with insertionSort
     - QuickSort with dual pivot based on Yaroslavskiy
+
+## CombinatorialOptimization
+- Knapsack Problem
+    - dynamic programming and recursive implementation
