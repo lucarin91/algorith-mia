@@ -1,17 +1,15 @@
-#include "heapSort.h"
-#include "utility.h"
-#include <math.h>       /* floor */
-#include <vector>
+#include "ComparisonSort.hpp"
 
 using namespace std;
 
-// The heapsort algorithm involves preparing the list by first turning it into a max heap. 
-//  The algorithm then repeatedly swaps the first value of the list with the last value, 
-//  decreasing the range of values considered in the heap operation by one, and sifting 
-//  the new first value into its position in the heap. This repeats until the range of 
+// The heapsort algorithm involves preparing the list by first turning it into a max heap.
+//  The algorithm then repeatedly swaps the first value of the list with the last value,
+//  decreasing the range of values considered in the heap operation by one, and sifting
+//  the new first value into its position in the heap. This repeats until the range of
 //  considered values is one value in length
 
-void siftDown(std::vector<int> &A, int start, int end){
+namespace CoroAlg{
+void ComparisonSort::siftDown(std::vector<int> &A, int start, int end){
     int root = start;
     while(root * 2 +1 <= end){
         int child = root * 2 + 1,
@@ -32,8 +30,8 @@ void siftDown(std::vector<int> &A, int start, int end){
     }
 }
 
-void heapify(std::vector<int> &A, int count){
-    int start = floor((count - 2) / 2);
+void ComparisonSort::heapify(std::vector<int> &A, int count){
+    int start = (count - 2) / 2;
 
     while(start >= 0){
         siftDown(A, start, count - 1);
@@ -41,7 +39,7 @@ void heapify(std::vector<int> &A, int count){
     }
 }
 
-void heapsort(std::vector<int> &A, int start, int count){
+void ComparisonSort::heapsort(std::vector<int> &A, int start, int count){
     // int count = A.size();
     heapify(A, count);
     int end = count -1;
@@ -50,4 +48,5 @@ void heapsort(std::vector<int> &A, int start, int count){
         end--;
         siftDown(A, start, end);// siftDown(A, 0, end);
     }
+}
 }

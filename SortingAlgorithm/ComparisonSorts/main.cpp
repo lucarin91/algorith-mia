@@ -1,15 +1,12 @@
-#include "introSort.h"
-#include "quickSort.h"
-#include "heapSort.h"
-#include "insertionSort.h"
-#include "utility.h"
-#include "gnomeSort.h"
 #include <time.h>
 #include <sys/time.h>
 #include <iostream>
 #include <vector>
-#include <stdlib.h>     /* srand, rand */
+//#include <stdlib.h>     /* srand, rand */
 #include <algorithm>    // std::sort
+
+#include "ComparisonSort.hpp"
+
 using namespace std;
 
 int myRandom(){
@@ -25,10 +22,10 @@ void printVector(std::vector<int> &v){
 }
 
 // In computing, wall-clock time can also mean the actual time taken by a computer to complete a task.
-//  It is the sum of three terms: CPU time, I/O time, and the communication channel delay 
-//  In contrast to CPU time, which measures only the time during which the processor is actively working 
-//  on a certain task, wall time measures the total time for the process to complete. 
-//  The difference between the two consists of time that passes due to programmed delays or waiting 
+//  It is the sum of three terms: CPU time, I/O time, and the communication channel delay
+//  In contrast to CPU time, which measures only the time during which the processor is actively working
+//  on a certain task, wall time measures the total time for the process to complete.
+//  The difference between the two consists of time that passes due to programmed delays or waiting
 //  for resources to become available
 double get_wall_time(){
 struct timeval time;
@@ -80,10 +77,10 @@ int main(int argc, char *argv[]){
 
     //------------------------------------------------------------
     // std::sort has traditionally been implemented as an intro-sort. From a high-level point of
-    //  view it means a relatively standard quick-sort implementation (with some median probing 
+    //  view it means a relatively standard quick-sort implementation (with some median probing
     //  to avoid a O(n2) worst case) coupled with an insertion sort routine for small inputs. libc++
     //  implementation however is slightly different and closer to TimSort: it detects already sorted
-    //  sequences in the inputs and avoid sorting them again, leading to an O(n) behavior on fully sorted 
+    //  sequences in the inputs and avoid sorting them again, leading to an O(n) behavior on fully sorted
     //  input. It also uses optimized sort networks for small inputs.
     cout << "standardSortCpp O(n log n)" << endl;
     b = v;
@@ -94,38 +91,38 @@ int main(int argc, char *argv[]){
     cout << "intro-sort O(n log n)" << endl;
     b = v;
     checkTime(0);
-    introSort(b);
+    CoroAlg::ComparisonSort::introSort(b);
     checkTime(1);
     //------------------------------------------------------------
     cout << "heapsort O(n log n)" << endl;
     b = v;
     checkTime(0);
-    heapsort(b, 0, b.size());
+    CoroAlg::ComparisonSort::heapsort(b, 0, b.size());
     checkTime(1);
     //------------------------------------------------------------
     cout << "quicksort O(n log n)" << endl;
     b = v;
     checkTime(0);
-    quicksort(b, 0, b.size()-1);
+    CoroAlg::ComparisonSort::quicksort(b, 0, b.size()-1);
     checkTime(1);
     //------------------------------------------------------------
     cout << "Alternative Quicksort (with insertionSort) O(n log n)" << endl;
     b = v;
     checkTime(0);
-    quickSortAlternative(b, 0, b.size());
+    CoroAlg::ComparisonSort::quickSortAlternative(b, 0, b.size());
     checkTime(1);
     //------------------------------------------------------------
     cout << "Quicksort Dual Pivot O(n log n)" << endl;
     b = v;
     checkTime(0);
-    quickSortDualPivotYaroslavskiy(b, 0, b.size()-1);
+    CoroAlg::ComparisonSort::quickSortDualPivotYaroslavskiy(b, 0, b.size()-1);
     checkTime(1);
     //------------------------------------------------------------
-    // cout << "bubbleSort O(n^2)" << endl;
-    // b = v;
-    // checkTime(0);
-    // bubbleSort(b);
-    // checkTime(1);
+    cout << "bubbleSort O(n^2)" << endl;
+    b = v;
+    checkTime(0);
+    CoroAlg::ComparisonSort::bubbleSort(b);
+    checkTime(1);
     // // //------------------------------------------------------------
     // cout << "bubbleSortOptimizing O(n^2)" << endl;
     // b = v;

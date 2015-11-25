@@ -1,7 +1,7 @@
-#include "insertionSort.h"
-#include <vector>
+#include "ComparisonSort.hpp"
 
-void insertionSort(std::vector<int> &A, int start, int end){
+namespace CoroAlg{
+void ComparisonSort::insertionSort(std::vector<int> &A, int start, int end){
 
     for (int i = start+1; i < end; ++i)
     {
@@ -13,4 +13,5 @@ void insertionSort(std::vector<int> &A, int start, int end){
         }
         A[j] = x;
     }
+}
 }
