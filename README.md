@@ -13,6 +13,8 @@
   - QuickSort
     - Alternative version of QuickSort with insertionSort
     - QuickSort with dual pivot based on Yaroslavskiy
+- Inefficient Sort
+  - Stooge Sort
 
 ## CombinatorialOptimization
 - Knapsack Problem
