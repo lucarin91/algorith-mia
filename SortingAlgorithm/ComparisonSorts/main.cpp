@@ -115,10 +115,10 @@ int main(int argc, char *argv[]){
     quickSortAlternative(b, 0, b.size());
     checkTime(1);
     //------------------------------------------------------------
-    cout << "Quicksort Dual Pivot Sedgewick O(n log n)" << endl;
+    cout << "Quicksort Dual Pivot O(n log n)" << endl;
     b = v;
     checkTime(0);
-    quickSortDualPivotSedgewick(b, 0, b.size()-1);
+    quickSortDualPivotYaroslavskiy(b, 0, b.size()-1);
     checkTime(1);
     //------------------------------------------------------------
     // cout << "bubbleSort O(n^2)" << endl;

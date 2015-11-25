@@ -65,7 +65,7 @@ void quickSortAlternative(std::vector<int> &A, int lo, int hi){
 
 //----------------------------------------------
 
-void quickSortDualPivotSedgewick(std::vector<int> &A, int left, int right){
+void quickSortDualPivotYaroslavskiy(std::vector<int> &A, int left, int right){
     if (right > left) {
         if (A[left] > A[right]) 
             swap(A, left, right);
@@ -95,8 +95,8 @@ void quickSortDualPivotSedgewick(std::vector<int> &A, int left, int right){
 
         swap(A, left, l); swap(A, right, g);
 
-        quickSortDualPivotSedgewick(A, left, l - 1);
-        quickSortDualPivotSedgewick(A, l + 1, g - 1);
-        quickSortDualPivotSedgewick(A, g + 1, right);
+        quickSortDualPivot(A, left, l - 1);
+        quickSortDualPivot(A, l + 1, g - 1);
+        quickSortDualPivot(A, g + 1, right);
     }
 }
