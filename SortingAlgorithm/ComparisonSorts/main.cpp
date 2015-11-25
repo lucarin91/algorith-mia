@@ -1,4 +1,9 @@
-#include "algorithmia.h"
+#include "introSort.h"
+#include "quickSort.h"
+#include "heapSort.h"
+#include "insertionSort.h"
+#include "utility.h"
+#include "gnomeSort.h"
 #include <time.h>
 #include <sys/time.h>
 #include <iostream>
@@ -102,6 +107,18 @@ int main(int argc, char *argv[]){
     b = v;
     checkTime(0);
     quicksort(b, 0, b.size()-1);
+    checkTime(1);
+    //------------------------------------------------------------
+    cout << "Alternative Quicksort (with insertionSort) O(n log n)" << endl;
+    b = v;
+    checkTime(0);
+    quickSortAlternative(b, 0, b.size());
+    checkTime(1);
+    //------------------------------------------------------------
+    cout << "Quicksort Dual Pivot Sedgewick O(n log n)" << endl;
+    b = v;
+    checkTime(0);
+    quickSortDualPivotSedgewick(b, 0, b.size()-1);
     checkTime(1);
     //------------------------------------------------------------
     // cout << "bubbleSort O(n^2)" << endl;
