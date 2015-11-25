@@ -15,7 +15,7 @@ void bubbleSort(std::vector<int> &A){
         swapped = false;
         for (int i = 1; i < n; ++i)
         {
-            if (A.at(i-1) > A.at(i))
+            if (A[i-1] > A[i])
             {
                 swap(A, i-1, i);
                 swapped = true;
@@ -37,7 +37,7 @@ void bubbleSortOptimizing(std::vector<int> &A){
         int newn = 0;
         for (int i = 1; i < n; ++i)
         {
-            if (A.at(i-1) > A.at(i))
+            if (A[i-1] > A[i])
             {
                 swap(A, i-1, i);
                 newn = i;
@@ -63,7 +63,7 @@ void cocktailSort( std::vector<int> &A){
         begin++;
         for (int i = begin; i <= end; ++i)
         {
-            if (A.at(i) > A.at(i+1))
+            if (A[i] > A[i+1])
             {
                 swap(A, i, i+1);
                 swapped = true;
@@ -75,7 +75,7 @@ void cocktailSort( std::vector<int> &A){
         end--;
         for (int i = end; i >= begin; --i)
         {
-            if (A.at(i) > A.at(i+1))
+            if (A[i] > A[i+1])
             {
                 swap(A, i, i+1);
                 swapped = true;

@@ -15,7 +15,7 @@
 void gnomeSort(std::vector<int> &A){
     int pos = 1;
     while(pos < A.size()){
-        if (A.at(pos) >= A.at(pos-1))
+        if (A[pos] >= A[pos-1])
         {
             pos++;
         } else {
@@ -32,7 +32,7 @@ void gnomeSortOptimized(std::vector<int> &A){
     int pos = 1,
         last = 0;
     while(pos < A.size()){
-        if (A.at(pos) >= A.at(pos-1)){
+        if (A[pos] >= A[pos-1]){
             if(last != 0)
             {
                 pos = last;

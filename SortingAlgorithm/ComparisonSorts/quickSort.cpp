@@ -20,11 +20,11 @@ using namespace std;
 //       separately to the sub-array of elements with greater values.
 
 int partition(std::vector<int> &A, int lo, int hi){
-    int pivot = A.at(hi),
+    int pivot = A[hi],
         i = lo;
     for (int j = lo; j < hi; ++j)
     {
-        if (A.at(j) <= pivot)
+        if (A[j] <= pivot)
         {
             swap(A, i, j);
             i++;
@@ -95,8 +95,8 @@ void quickSortDualPivotYaroslavskiy(std::vector<int> &A, int left, int right){
 
         swap(A, left, l); swap(A, right, g);
 
-        quickSortDualPivot(A, left, l - 1);
-        quickSortDualPivot(A, l + 1, g - 1);
-        quickSortDualPivot(A, g + 1, right);
+        quickSortDualPivotYaroslavskiy(A, left, l - 1);
+        quickSortDualPivotYaroslavskiy(A, l + 1, g - 1);
+        quickSortDualPivotYaroslavskiy(A, g + 1, right);
     }
 }

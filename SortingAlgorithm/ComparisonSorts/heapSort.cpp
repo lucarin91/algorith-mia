@@ -16,11 +16,11 @@ void siftDown(std::vector<int> &A, int start, int end){
     while(root * 2 +1 <= end){
         int child = root * 2 + 1,
             swapV = root;
-        if (A.at(swapV) < A.at(child))
+        if (A[swapV] < A[child])
         {
             swapV = child;
         }
-        if (child+1 <= end && A.at(swapV) < A.at(child+1))
+        if (child+1 <= end && (A[swapV] < A[child+1]))
         {
             swapV = child+1;
         }
